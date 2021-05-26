@@ -1,0 +1,23 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sevalk/Node.js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sevalk/Node.js/issues"
+  },
+  "homepage": "https://github.com/sevalk/Node.js#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "koa": "^2.13.1"
+  }
+}

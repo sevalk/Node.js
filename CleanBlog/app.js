@@ -13,7 +13,6 @@ mongoose.connect('mongodb://localhost/cleanblog-test-db', {
   useUnifiedTopology: true,
 });
 
-
 //TEMPLATE ENGINE
 app.set('view engine', 'ejs');
 
@@ -36,26 +35,32 @@ app.use(express.json());
 
 //ROUTES
 app.get('/', async (req, res) => {
-  const photos = await Photo.find({})
+  const photos = await Photo.find({});
   res.render('index', {
-     photos
+    photos,
   });
 });
+
+app.get('/photos/:id', async (req, res) => {
+  const post = await Photo.findById(req.params.id);
+  res.render('post', {
+    post,
+  });
+});
+
 app.get('/about', (req, res) => {
   // res.sendFile(path.resolve(__dirname, 'temp/index.html'));
   res.render('about');
 });
 app.get('/addpost', (req, res) => {
-  // res.sendFile(path.resolve(__dirname, 'temp/index.html'));
   res.render('add_post');
 });
 app.get('/post', (req, res) => {
-  // res.sendFile(path.resolve(__dirname, 'temp/index.html'));
   res.render('post');
 });
 
 app.post('/photos', async (req, res) => {
-  await Photo.create(req.body)
+  await Photo.create(req.body);
   res.redirect('/');
 });
 
